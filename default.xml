@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+    <remote name="origin"
+        revision="ranga/master"
+        fetch="https://github.com/nswa-project/" />
+    <default revision="ranga/master" remote="origin" sync-j="4" />
+
+    <project path="openwrt" name="openwrt.git" />
+    <project path="ranga" name="ranga-core.git">
+        <linkfile src="." dest="openwrt/package/ranga" />
+    </project>
+    <project path="openwrt/package/ranga/src" name="ranga-libs.git" />
+    <project path="openwrt/package/ranga/cgi" name="ranga-cgi.git" />
+    <project path="openwrt/package/ranga/misc" name="ranga-misc.git" />
+    <project path="feeds-patches" name="feeds-patches.git" />
+    <project path="client" name="ranga-client.git" />
+    <!--<project path="ranga/extra/usb" name="ranga-extra-usb-support.git" />
+    <project path="ranga/extra/mtk" name="ranga-extra-mtk-driver.git" />-->
+    <project path="extensions/ranga.ext.base" name="ranga-extension-system-base.git">
+        <linkfile src="ranga.ext.base" dest="openwrt/package/ranga/files/extensions/ranga.ext.base" />
+    </project>
+    <project path="extensions/ranga.webcon" name="ranga-webcon.git">
+        <linkfile src="ranga.webcon" dest="openwrt/package/ranga/files/extensions/ranga.webcon" />
+    </project>
+    <project path="extensions/com.montee.wol" name="ranga-extension-montee-wol.git">
+        <linkfile src="com.montee.wol" dest="openwrt/package/ranga/files/extensions/com.montee.wol" />
+    </project>
+    <project path="extensions/com.aluca.freeload" name="ranga-extension-aluca-freeload.git">
+        <linkfile src="com.aluca.freeload" dest="openwrt/package/ranga/files/extensions/com.aluca.freeload" />
+    </project>
+</manifest>

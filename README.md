@@ -2,7 +2,7 @@
 
 ## For lagecy close-source version users
 
-You can follow [this instruction](https://github.com/nswa-project/doc/blob/master/misc/upgrade-from-lagecy-version.md) to upgrade to the open source version
+You can follow [this instruction](https://nswa-project.github.io/upgrade-to-opensource-version.html) to upgrade to the open source version
 
 ## Fetch all sources
 
@@ -52,9 +52,20 @@ Ran make to build
 $ make
 ```
 
-Upload and flash your version
+If you are using NSWA Ranga system, make a nswafw format update bundle and upload to flash your version
 
 ```
-$ ../ranga/scripts/make_basic_nswafw.sh out/.../xxx.img nswafw.bin
+$ ../ranga/fw/make_fullpack_fw.sh out/.../xxx.img nswafw.bin
 $ ../client/ranga-cli swdeploy -r flash nswafw.bin
 ```
+
+If you are using generic OpenWrt distro, install by SSH
+
+```
+$ scp out/.../xxx.img root@192.168.1.1:/tmp
+$ ssh root@192.168.1.1
+OpenWrt # cd /tmp
+OpenWrt /tmp# sysupgrade -n xxx.img
+```
+
+If you are using another system or stock system, use device-specific methods, for example, flash in u-boot console by UART TTL
